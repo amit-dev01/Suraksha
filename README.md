@@ -1,56 +1,105 @@
-# Welcome to your Expo app 👋
+<div align="center">
+  <img src="./assets/images/logo-glow.png" alt="Safe Route Logo" width="120" />
+  
+  # Safe Route (Suraksha)
+  **Your Trusted Personal Safety Companion**
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+  <p align="center">
+    <a href="https://reactnative.dev/"><img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native" /></a>
+    <a href="https://expo.dev/"><img src="https://img.shields.io/badge/Expo-1B1F23?style=for-the-badge&logo=expo&logoColor=white" alt="Expo SDK 54" /></a>
+    <a href="https://reactnavigation.org/"><img src="https://img.shields.io/badge/React_Navigation-8A2BE2?style=for-the-badge&logo=react&logoColor=white" alt="React Navigation" /></a>
+  </p>
+</div>
 
-## Get started
+---
 
-1. Install dependencies
+## 🛡️ About Safe Route
 
+Safe Route (Suraksha) is a modern, mobile-first personal safety application built with React Native and Expo. Designed to keep you safe in any situation, it provides real-time location tracking, rapid SOS activation, and intelligent routing based on safety metrics like street lighting and crowd density.
+
+Whether you're walking home late at night or traveling through unfamiliar areas, Safe Route acts as your digital guardian.
+
+## ✨ Key Features
+
+- 🚨 **Smart SOS Activation**: A prominent, pulsating SOS button with a built-in 5-second cancellation timer to prevent accidental triggers.
+- 📍 **Live Location Sharing**: Instantly broadcast your real-time coordinates to trusted family and friends.
+- 🗺️ **Safety-Scored Routing**: Get walking or driving directions optimized for safety rather than just speed. Routes are scored based on lighting and crowd levels.
+- 🚓 **Emergency Directory**: One-tap access to nearby police stations, hospitals, and emergency dispatchers.
+- 📶 **Offline Mode**: Download offline maps and emergency contact data for areas without cellular service.
+
+## 📱 Screenshots
+
+*(Add screenshots here)*
+<div style="display: flex; flex-direction: row; gap: 10px;">
+  <img src="https://via.placeholder.com/250x500.png?text=Home+Screen" width="200" />
+  <img src="https://via.placeholder.com/250x500.png?text=SOS+Active" width="200" />
+  <img src="https://via.placeholder.com/250x500.png?text=Safe+Routes" width="200" />
+</div>
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [Expo Go](https://expo.dev/client) app installed on your iOS or Android device
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/amit-dev01/Suraksha.git
+   cd Suraksha
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. **Start the development server**
    ```bash
-   npx expo start
+   npx expo start -c
    ```
 
-In the output, you'll find options to open the app in a
+4. **Run on your device**
+   - **iOS:** Open the Camera app and scan the QR code generated in the terminal.
+   - **Android:** Open the Expo Go app and scan the QR code.
+   - Alternatively, press `a` to run on an Android Emulator or `i` for an iOS Simulator.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🛠️ Tech Stack
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Framework**: [React Native](https://reactnative.dev/)
+- **Build Tool / SDK**: [Expo](https://expo.dev/) (SDK 54)
+- **Navigation**: [React Navigation v7](https://reactnavigation.org/)
+- **Icons**: `@expo/vector-icons` (MaterialCommunityIcons)
+- **Animations**: `lottie-react-native` & `react-native-reanimated`
+- **Maps**: `react-native-maps`
 
-## Get a fresh project
+## 📁 Project Structure
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+Suraksha/
+├── assets/             # Images, fonts, and icons
+├── src/
+│   ├── components/     # Reusable UI components (Buttons, Cards, Headers)
+│   ├── context/        # React Context for Auth and App State
+│   ├── navigation/     # Stack and Tab navigators (AppNavigator, MainTabs)
+│   ├── screens/        # UI Screens categorized by feature
+│   │   ├── auth/       # Login, OTP, Onboarding
+│   │   ├── home/       # Main Dashboard
+│   │   ├── route/      # Safe Routing & Map views
+│   │   ├── safety/     # Police Stations, Live Tracking
+│   │   └── sos/        # SOS trigger and active modes
+│   ├── theme/          # Design System (colors, typography, spacing)
+│   └── utils/          # Helper functions and mock data
+├── App.js              # Application entry point
+└── app.json            # Expo configuration
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🤝 Contributing
 
-### Other setup steps
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/amit-dev01/Suraksha/issues).
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## 📄 License
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
