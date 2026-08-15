@@ -14,6 +14,7 @@ import Animated, {
 import { colors, typography, spacing, borderRadius } from '../../theme';
 import Avatar from '../../components/common/Avatar';
 import Badge from '../../components/common/Badge';
+import QuickActionCard from '../../components/common/QuickActionCard';
 import { mockUser, mockRecentJourneys } from '../../utils/mockData';
 
 export default function HomeScreen({ navigation }) {
@@ -139,59 +140,35 @@ export default function HomeScreen({ navigation }) {
 
         <View style={styles.gridContainer}>
           <View style={styles.gridRow}>
-            <TouchableOpacity style={styles.gridCard} onPress={() => navigation.navigate('MapTab')}>
-              <LinearGradient colors={['#9b59b6', '#8e44ad']} style={styles.gridGradient}>
-                <View style={styles.gridCardHeader}>
-                  <View style={styles.iconCircle}>
-                    <MaterialCommunityIcons name="map-marker-path" size={24} color={colors.white} />
-                  </View>
-                  <MaterialCommunityIcons name="arrow-top-right" size={20} color={colors.white} />
-                </View>
-                <Text style={styles.gridCardTitle}>Safe Route</Text>
-                <Text style={styles.gridCardSubtitle}>Find safest path</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.gridCard}>
-              <LinearGradient colors={['#2ecc71', '#27ae60']} style={styles.gridGradient}>
-                <View style={styles.gridCardHeader}>
-                  <View style={styles.iconCircle}>
-                    <MaterialCommunityIcons name="cellphone-marker" size={24} color={colors.white} />
-                  </View>
-                  <MaterialCommunityIcons name="arrow-top-right" size={20} color={colors.white} />
-                </View>
-                <Text style={styles.gridCardTitle}>Live Location</Text>
-                <Text style={styles.gridCardSubtitle}>Share real-time</Text>
-              </LinearGradient>
-            </TouchableOpacity>
+            <QuickActionCard
+              title="Safe Route"
+              subtitle="Find safest path"
+              icon="map-marker-path"
+              gradientColors={['#9b59b6', '#8e44ad']}
+              onPress={() => navigation.navigate('MapTab')}
+            />
+            <QuickActionCard
+              title="Live Location"
+              subtitle="Share real-time"
+              icon="cellphone-marker"
+              gradientColors={['#2ecc71', '#27ae60']}
+            />
           </View>
 
           <View style={styles.gridRow}>
-            <TouchableOpacity style={styles.gridCard} onPress={() => navigation.navigate('ContactsTab')}>
-              <LinearGradient colors={['#f39c12', '#e67e22']} style={styles.gridGradient}>
-                <View style={styles.gridCardHeader}>
-                  <View style={styles.iconCircle}>
-                    <MaterialCommunityIcons name="account-group" size={24} color={colors.white} />
-                  </View>
-                  <MaterialCommunityIcons name="arrow-top-right" size={20} color={colors.white} />
-                </View>
-                <Text style={styles.gridCardTitle}>Trusted Group</Text>
-                <Text style={styles.gridCardSubtitle}>Manage contacts</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.gridCard}>
-              <LinearGradient colors={['#3498db', '#2980b9']} style={styles.gridGradient}>
-                <View style={styles.gridCardHeader}>
-                  <View style={styles.iconCircle}>
-                    <MaterialCommunityIcons name="shield-account" size={24} color={colors.white} />
-                  </View>
-                  <MaterialCommunityIcons name="arrow-top-right" size={20} color={colors.white} />
-                </View>
-                <Text style={styles.gridCardTitle}>Police Nearby</Text>
-                <Text style={styles.gridCardSubtitle}>Find stations</Text>
-              </LinearGradient>
-            </TouchableOpacity>
+            <QuickActionCard
+              title="Trusted Group"
+              subtitle="Manage contacts"
+              icon="account-group"
+              gradientColors={['#f39c12', '#e67e22']}
+              onPress={() => navigation.navigate('ContactsTab')}
+            />
+            <QuickActionCard
+              title="Police Nearby"
+              subtitle="Find stations"
+              icon="shield-account"
+              gradientColors={['#3498db', '#2980b9']}
+            />
           </View>
         </View>
 
@@ -434,40 +411,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: spacing.md,
-  },
-  gridCard: {
-    width: '48%',
-    height: 100,
-    borderRadius: borderRadius.lg,
-    overflow: 'hidden',
-  },
-  gridGradient: {
-    flex: 1,
-    padding: spacing.md,
-    justifyContent: 'space-between',
-  },
-  gridCardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-  },
-  iconCircle: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  gridCardTitle: {
-    ...typography.body,
-    fontFamily: 'Poppins_600SemiBold',
-    color: colors.white,
-  },
-  gridCardSubtitle: {
-    ...typography.caption,
-    color: colors.white,
-    opacity: 0.8,
   },
   journeysContainer: {
     paddingRight: spacing.lg,
