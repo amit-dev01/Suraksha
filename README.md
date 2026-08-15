@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/logo-glow.png" alt="Safe Route Logo" width="120" />
+  <img src="./assets/images/suraksha-logo.jpg" alt="Safe Route Logo" width="120" />
   
   # Safe Route (Suraksha)
   **Your Trusted Personal Safety Companion**
