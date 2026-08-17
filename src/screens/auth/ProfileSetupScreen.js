@@ -43,7 +43,7 @@ export default function ProfileSetupScreen({ navigation }) {
         style={styles.keyboardView}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
-        <ScrollView bounces={false} contentContainerStyle={styles.scrollContent}>
+        <ScrollView bounces={false} contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
           
           {/* Profile Picture Upload */}
           <View style={styles.avatarSection}>

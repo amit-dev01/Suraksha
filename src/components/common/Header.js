@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, SafeAreaView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';

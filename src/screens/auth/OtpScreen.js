@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, View, TextInput, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TextInput, KeyboardAvoidingView, Platform, TouchableOpacity, ScrollView } from 'react-native';
 import { Text } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -75,55 +75,57 @@ export default function OtpScreen({ navigation, route }) {
       
       <KeyboardAvoidingView 
         style={styles.content}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <View style={styles.topSection}>
-          <View style={styles.iconContainer}>
-            <MaterialCommunityIcons name="message-processing" size={64} color={colors.primary} />
-          </View>
-          <Text style={styles.title}>Verify Your Number</Text>
-          <Text style={styles.subtitle}>
-            Enter the 6-digit code sent to{'\n'}
-            <Text style={styles.phoneText}>{phone}</Text>
-          </Text>
-        </View>
-
-        <View style={styles.otpContainer}>
-          {otp.map((digit, index) => (
-            <TextInput
-              key={index}
-              ref={(ref) => (inputRefs.current[index] = ref)}
-              style={[
-                styles.otpInput,
-                digit !== '' && styles.otpInputFilled,
-              ]}
-              value={digit}
-              onChangeText={(text) => handleChange(text, index)}
-              onKeyPress={(e) => handleKeyPress(e, index)}
-              keyboardType="number-pad"
-              maxLength={1}
-              selectTextOnFocus
-            />
-          ))}
-        </View>
-
-        <View style={styles.resendContainer}>
-          <Text style={styles.resendText}>Didn't receive the code? </Text>
-          <TouchableOpacity onPress={handleResend} disabled={timer > 0}>
-            <Text style={[styles.resendLink, timer > 0 && styles.resendLinkDisabled]}>
-              {timer > 0 ? `Resend in ${timer}s` : 'Resend Now'}
+        <ScrollView bounces={false} contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled">
+          <View style={styles.topSection}>
+            <View style={styles.iconContainer}>
+              <MaterialCommunityIcons name="message-processing" size={64} color={colors.primary} />
+            </View>
+            <Text style={styles.title}>Verify Your Number</Text>
+            <Text style={styles.subtitle}>
+              Enter the 6-digit code sent to{'\n'}
+              <Text style={styles.phoneText}>{phone}</Text>
             </Text>
-          </TouchableOpacity>
-        </View>
+          </View>
 
-        <View style={styles.bottomSection}>
-          <Button
-            title="Verify & Continue"
-            onPress={handleVerify}
-            disabled={otp.join('').length < 6}
-            fullWidth
-          />
-        </View>
+          <View style={styles.otpContainer}>
+            {otp.map((digit, index) => (
+              <TextInput
+                key={index}
+                ref={(ref) => (inputRefs.current[index] = ref)}
+                style={[
+                  styles.otpInput,
+                  digit !== '' && styles.otpInputFilled,
+                ]}
+                value={digit}
+                onChangeText={(text) => handleChange(text, index)}
+                onKeyPress={(e) => handleKeyPress(e, index)}
+                keyboardType="number-pad"
+                maxLength={1}
+                selectTextOnFocus
+              />
+            ))}
+          </View>
+
+          <View style={styles.resendContainer}>
+            <Text style={styles.resendText}>Didn't receive the code? </Text>
+            <TouchableOpacity onPress={handleResend} disabled={timer > 0}>
+              <Text style={[styles.resendLink, timer > 0 && styles.resendLinkDisabled]}>
+                {timer > 0 ? `Resend in ${timer}s` : 'Resend Now'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.bottomSection}>
+            <Button
+              title="Verify & Continue"
+              onPress={handleVerify}
+              disabled={otp.join('').length < 6}
+              fullWidth
+            />
+          </View>
+        </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

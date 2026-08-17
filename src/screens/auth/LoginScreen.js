@@ -23,7 +23,7 @@ export default function LoginScreen({ navigation }) {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <ScrollView bounces={false} contentContainerStyle={styles.scrollContent}>
+      <ScrollView bounces={false} contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
         {/* Top Gradient Section */}
         <LinearGradient
           colors={[colors.primaryLight, colors.primaryDark]}
