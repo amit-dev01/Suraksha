@@ -31,9 +31,14 @@ export default function QuickActionCard({
 const styles = StyleSheet.create({
   gridCard: {
     width: '48%',
-    height: 100,
-    borderRadius: borderRadius.lg,
+    height: 120,
+    borderRadius: borderRadius.xl,
     overflow: 'hidden',
+    shadowColor: colors.primary,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    elevation: 5,
   },
   gridGradient: {
     flex: 1,

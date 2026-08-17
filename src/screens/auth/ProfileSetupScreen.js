@@ -7,8 +7,10 @@ import { colors, typography, spacing, borderRadius } from '../../theme';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
 import Header from '../../components/common/Header';
+import { useAuth } from '../../context/AuthContext';
 
 export default function ProfileSetupScreen({ navigation }) {
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -22,7 +24,7 @@ export default function ProfileSetupScreen({ navigation }) {
   };
 
   const handleSubmit = () => {
-    navigation.replace('MainApp');
+    login({ name: formData.fullName || 'User', ...formData });
   };
 
   return (

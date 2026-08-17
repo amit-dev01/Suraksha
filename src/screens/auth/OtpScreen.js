@@ -24,19 +24,37 @@ export default function OtpScreen({ navigation, route }) {
   }, [timer]);
 
   const handleChange = (text, index) => {
+    // Handle paste of full OTP
+    if (text.length > 1) {
+      const pastedOtp = text.slice(0, 6).split('');
+      const newOtp = [...otp];
+      pastedOtp.forEach((char, i) => {
+        if (index + i < 6) newOtp[index + i] = char;
+      });
+      setOtp(newOtp);
+      
+      // Focus last filled input
+      const lastIndex = Math.min(index + pastedOtp.length - 1, 5);
+      inputRefs.current[lastIndex]?.focus();
+      return;
+    }
+
     const newOtp = [...otp];
     newOtp[index] = text;
     setOtp(newOtp);
 
-    // Auto-focus next input
-    if (text.length !== 0 && index < 5) {
-      inputRefs.current[index + 1].focus();
+    // Auto-focus next input if typing a digit
+    if (text.length === 1 && index < 5) {
+      inputRefs.current[index + 1]?.focus();
     }
   };
 
   const handleKeyPress = (e, index) => {
     if (e.nativeEvent.key === 'Backspace' && index > 0 && otp[index] === '') {
-      inputRefs.current[index - 1].focus();
+      const newOtp = [...otp];
+      newOtp[index - 1] = '';
+      setOtp(newOtp);
+      inputRefs.current[index - 1]?.focus();
     }
   };
 
